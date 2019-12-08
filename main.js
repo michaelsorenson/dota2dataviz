@@ -2,21 +2,17 @@ function doMain() {
     renderPie();
     renderLine();
     renderBar();
-    //renderWeb();
+    renderWeb();
 }
 
 function renderPie() {
     Highcharts.chart('pieGraph', {
         chart: {
-            type: 'pie',
-            options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
-            }
+            type: 'pie'
         },
         title: {
-            text: 'Game Mode Played'
+            text: '<b>Game Mode Played</b>',
+            useHTML: true
         },
         accessibility: {
             point: {
@@ -48,7 +44,8 @@ function renderPie() {
 function renderLine() {
     Highcharts.chart('lineGraph', {
         title: {
-            text: 'Distribution of MMR in Dota 2'
+            text: '<b>Distribution of MMR in Dota 2</b>',
+            useHTML: true
         },
 
         yAxis: {
@@ -74,7 +71,8 @@ function renderBar() {
             type: 'bar'
         },
         title: {
-            text: 'Hero Win Percentages'
+            text: '<b>Hero Win Percentages of Heroes with >50% Winrate</b>',
+            useHTML: true
         },
         xAxis: {
             categories: heroCats,
@@ -83,7 +81,6 @@ function renderBar() {
             }
         },
         yAxis: {
-            min: 0,
             title: {
                 text: 'Win Percentage',
                 align: 'high'
@@ -98,7 +95,7 @@ function renderBar() {
         plotOptions: {
             series: {
                 pointPadding: 0.1,
-                pointWidth: 10,
+                pointWidth: 15,
                 groupPadding: 0.2
             }
         },
@@ -111,51 +108,37 @@ function renderBar() {
         series: heroData
     });
 }
-/*
+
 function renderWeb() {
-    Highcharts.chart('container', {
+    Highcharts.chart('webGraph', {
         chart: {
             polar: true,
             type: 'line'
         },
         title: {
-            text: 'Average Stats vs MMR',
-            x: -80
-        },
-        pane: {
-            size: '80%'
+            text: '<b>Average Stats vs MMR</b><br><br>Note: There are only 13 matches in the 6000-6499 category and 6 matches in the 6500-6599 category',
+            useHTML: true
         },
         xAxis: {
-            categories: ['Last Hits per Minute', 'Gold per Minute', 'EXP per Minute'],
+            categories: ['Last Hits per Minute', 'Gold per Minute', 'EXP per Minute', 'Kills per Minute'],
             tickmarkPlacement: 'on',
             lineWidth: 0
         },
         yAxis: {
             gridLineInterpolation: 'polygon',
-            lineWidth: 0,
-            min: 0
+            lineWidth: 0
         },
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.1f}</b><br/>'
         },
-
         legend: {
             align: 'right',
-            verticalAlign: 'middle'
+            verticalAlign: 'middle',
+            width: 200,
+            itemWidth: 200
         },
-
-        series: mmrStatsData
-        [{
-            name: 'Allocated Budget',
-            data: [43000, 19000, 60000, 35000, 17000, 10000],
-            pointPlacement: 'on'
-        }, {
-            name: 'Actual Spending',
-            data: [50000, 39000, 42000, 31000, 26000, 14000],
-            pointPlacement: 'on'
-        }],
-
+        series: mmrStatsData,
         responsive: {
             rules: [{
                 condition: {
@@ -172,8 +155,7 @@ function renderWeb() {
                 }
             }]
         }
-
     });
-}*/
+}
 
 document.onload = doMain();

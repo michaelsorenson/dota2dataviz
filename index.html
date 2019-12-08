@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <!-- Internal stylesheet import -->
     <link rel="stylesheet" href="main.css">
     <!-- External Script -->
@@ -9,30 +9,32 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <script src="./data/gametype_data.js"></script>
   <script src="./data/hero_data.js"></script>
   <script src="./data/mmr_data.js"></script>
   <script src="./data/mmr_stats_data.js"></script>
-  </head>
+</head>
+<body>
   <h1>Dota 2 Patch 7.23c Data</h1>
   <h4>Data taken from OpenDota API found here: https://docs.opendota.com/</h4>
-  <body>
-    <!-- Container -->
-    <table class="simpleTable">
-      <tr>
-        <td height="600px" id="pieGraph"></td>
-      </tr>
-      <tr>
-        <td height="600px" id="lineGraph"></td>
-      </tr>
-      <tr>
-        <td height="1200px" id="barGraph"></td>
-      </tr>
-      <tr>
-        <td height="800px" id="webGraph"></td>
-      </tr>
-    </table>
-    <!-- Internal JS Import -->
-    <script src="main.js"></script>
-  </body>
+  <!-- Container -->
+  <table class="simpleTable">
+    <tr>
+      <td height="400px" id="pieGraph"></td>
+    </tr>
+    <tr>
+      <td height="400px" id="lineGraph"></td>
+    </tr>
+    <tr>
+      <td height="1600px" id="barGraph"></td>
+    </tr>
+    <tr>
+      <td height="600px" id="webGraph"></td>
+    </tr>
+  </table>
+  <!-- Internal JS Import -->
+  <script src="main.js"></script>
+</body>
 </html>
